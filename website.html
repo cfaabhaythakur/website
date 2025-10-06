@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InvestSmart — Professional Investing & Trading Guides</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind CSS Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              DEFAULT: '#0a3d62', // Dark Blue
+              dark: '#07314a',
+            },
+            accent: {
+              DEFAULT: '#f39c12', // Orange
+              dark: '#e07f00',
+            },
+            light: '#f4f6f7', // Light Grey Background
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        position: relative;
+    }
+    /* Watermark background */
+    body::before {
+        content: '';
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 100 100'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='50' font-weight='bold' fill='rgba(10, 61, 98, 0.05)'%3EIS%3C/text%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 350px;
+    }
+    /* Styles for the article content for better readability */
+    .article-content h2 {
+        font-size: 1.875rem;
+        font-weight: 700;
+        color: #0a3d62;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #f39c12;
+        padding-bottom: 0.5rem;
+    }
+    .article-content p {
+        margin-bottom: 1.25rem;
+        line-height: 1.8;
+    }
+    .article-content ul {
+        list-style-type: disc;
+        margin-left: 1.5rem;
+        margin-bottom: 1.25rem;
+        padding-left: 1rem;
+    }
+     .article-content li {
+        margin-bottom: 0.75rem;
+     }
+    .article-content blockquote {
+        border-left: 4px solid #0a3d62;
+        padding-left: 1rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: #4a5568;
+    }
+  </style>
+</head>
+<body class="bg-light text-gray-800">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="flex items-center gap-3 back-to-home-btn">
+        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-accent to-accent-dark flex items-center justify-center text-white font-bold text-xl">
+          IS
+        </div>
+        <div>
+          <h1 class="text-xl font-bold text-primary">InvestSmart</h1>
+          <p class="text-xs text-gray-500">Research-driven Investing Guides</p>
+        </div>
+      </a>
+      <!-- Mobile Menu Button -->
+       <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-primary hover:bg-gray-100">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+    </button>
+      <nav id="site-nav" class="hidden md:flex items-center gap-4 lg:gap-6 text-base font-semibold">
+        <a href="#" class="text-primary hover:text-accent transition-colors back-to-home-btn">Home</a>
+        <a href="#articles" class="text-primary hover:text-accent transition-colors">Articles</a>
+        <a href="#strategies" class="text-primary hover:text-accent transition-colors">Strategies</a>
+        <a href="#tools" class="text-primary hover:text-accent transition-colors">Tools</a>
+        <a href="#about" class="text-primary hover:text-accent transition-colors">About</a>
+        <a href="#journey" class="bg-accent text-white font-bold py-2 px-5 rounded-lg hover:bg-accent-dark transition-all duration-300 shadow-sm hover:shadow-md">
+          Get Started
+        </a>
+      </nav>
+    </div>
+     <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-4 pb-4">
+        <nav class="flex flex-col gap-4 text-center">
+            <a href="#" class="text-primary hover:bg-gray-100 p-2 rounded-md back-to-home-btn">Home</a>
+            <a href="#articles" class="text-primary hover:bg-gray-100 p-2 rounded-md">Articles</a>
+            <a href="#strategies" class="text-primary hover:bg-gray-100 p-2 rounded-md">Strategies</a>
+            <a href="#tools" class="text-primary hover:bg-gray-100 p-2 rounded-md">Tools</a>
+            <a href="#about" class="text-primary hover:bg-gamma-100 p-2 rounded-md">About</a>
+            <a href="#journey" class="bg-accent text-white font-bold py-2 px-5 rounded-lg hover:bg-accent-dark">Get Started</a>
+        </nav>
+    </div>
+  </header>
+  
+  <div id="home-view">
+      <!-- Main Content -->
+      <main class="container mx-auto px-4 mt-8">
+        <!-- Hero Section, Articles, Calculator, etc. all go here -->
+         <section class="hero mb-12">
+      <div class="grid lg:grid-cols-3 gap-8 items-start">
+        <!-- Left Column -->
+        <div class="lg:col-span-2">
+          <span class="inline-block bg-primary/10 text-primary text-sm font-semibold py-1 px-3 rounded-full mb-4">
+            In-Depth Analysis
+          </span>
+          <h2 class="text-4xl md:text-5xl font-bold text-primary leading-tight mb-4">
+            Learn Smart Investing & Trading
+          </h2>
+          <p class="text-gray-600 text-lg mb-6">
+            Trusted, structured guides for beginners and advanced investors. Articles include key insights, quantified risks, and sources — suited for those who want investment thinking, not tips.
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+              <p class="font-semibold"><strong>New:</strong> Trade Journal Excel template — downloadable.</p>
+              <p class="text-sm text-gray-500 mt-2">Use to log trades, R:R, position size and emotions.</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+              <p class="font-semibold"><strong>Quick Read:</strong> "Risk Management — The Margin of Safety"</p>
+              <p class="text-sm text-gray-500 mt-2">TL;DR bullets and example numbers.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <aside>
+          <div class="bg-white p-5 rounded-lg shadow-md border border-gray-200 mb-6">
+            <h3 class="font-bold text-lg mb-3">Quote of the Day</h3>
+            <blockquote class="text-gray-600 italic border-l-4 border-accent pl-4">
+              "Price is what you pay. Value is what you get."
+            </blockquote>
+            <figcaption class="text-right text-sm font-semibold text-gray-700 mt-2">— Warren Buffett</figcaption>
+          </div>
+          <div class="bg-white p-5 rounded-lg shadow-md border border-gray-200">
+            <h3 class="font-bold text-lg mb-4">Our Core Principles</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent flex-shrink-0 mr-2 mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <div>
+                  <h4 class="font-semibold text-primary">Data Over Drama</h4>
+                  <p class="text-xs text-gray-500">Analysis is based on numbers, not narratives.</p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent flex-shrink-0 mr-2 mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" /></svg>
+                <div>
+                  <h4 class="font-semibold text-primary">Risk-First Approach</h4>
+                  <p class="text-xs text-gray-500">Capital protection is prioritized over returns.</p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent flex-shrink-0 mr-2 mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" /></svg>
+                <div>
+                  <h4 class="font-semibold text-primary">Long-Term Perspective</h4>
+                  <p class="text-xs text-gray-500">We focus on sustainable growth and compounding.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+    
+    <!-- Disclaimer -->
+    <div class="bg-accent/10 border-l-4 border-accent text-accent-dark font-semibold p-4 rounded-r-lg mb-12">
+        <strong>Disclaimer:</strong> All content is educational only and not personalized investment advice. Refer to Terms & SEBI guidelines before making decisions.
+    </div>
+
+    <!-- Featured Articles -->
+    <section id="articles" class="mb-16">
+      <div class="flex justify-between items-baseline mb-6">
+        <h3 class="text-3xl font-bold text-primary">Featured Articles</h3>
+        <a href="#" class="font-semibold text-primary hover:text-accent transition-colors">View All &rarr;</a>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Article Card 1 -->
+        <article class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col">
+          <img src="https://placehold.co/600x400/0a3d62/f39c12?text=Valuation" alt="Stock valuation chart" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex flex-col flex-grow">
+            <p class="text-sm text-gray-500 mb-2">By <strong>Abhay Thakur</strong> • Oct 04, 2025</p>
+            <h4 class="text-xl font-bold text-primary mb-3">Stock Market Basics: Valuation & Margin of Safety</h4>
+            <p class="text-gray-600 text-sm mb-4 flex-grow">A structured approach to valuing companies with clear worked examples (P/E, EV/EBITDA, DCF).</p>
+            <a href="#" id="read-article-btn" class="font-bold text-accent group-hover:underline mt-auto">Read Article &rarr;</a>
+          </div>
+        </article>
+        <!-- Article Card 2 -->
+        <article class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col">
+          <img src="https://placehold.co/600x400/0a3d62/f39c12?text=Strategy" alt="Trading strategy diagram" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex flex-col flex-grow">
+            <p class="text-sm text-gray-500 mb-2">By <strong>InvestSmart Team</strong> • Sep 18, 2025</p>
+            <h4 class="text-xl font-bold text-primary mb-3">Breakout Trading: Rules, Examples & Risk Controls</h4>
+            <p class="text-gray-600 text-sm mb-4 flex-grow">Entry criteria, stop placement, position sizing — with a sample trade log and result table.</p>
+            <a href="#" class="font-bold text-accent group-hover:underline mt-auto">Read Article &rarr;</a>
+          </div>
+        </article>
+        <!-- Article Card 3 -->
+        <article class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col">
+          <img src="https://placehold.co/600x400/0a3d62/f39c12?text=Funds" alt="Mutual funds vs ETFs comparison" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex flex-col flex-grow">
+            <p class="text-sm text-gray-500 mb-2">By <strong>Research Desk</strong> • Sep 02, 2025</p>
+            <h4 class="text-xl font-bold text-primary mb-3">Mutual Funds vs ETFs: Costs, Tax & How to Choose</h4>
+            <p class="text-gray-600 text-sm mb-4 flex-grow">Comparative analysis including expense ratios, tracking error, and tax treatment in India.</p>
+            <a href="#" class="font-bold text-accent group-hover:underline mt-auto">Read Article &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Core Strategies -->
+    <section id="strategies" class="mb-16">
+        <h3 class="text-3xl font-bold text-primary text-center mb-6">Core Strategies</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-white text-center p-6 rounded-lg shadow-md border hover:shadow-xl hover:-translate-y-1 transition-all">
+                <h4 class="font-bold text-lg text-primary">Breakout</h4>
+                <p class="text-sm text-gray-600 mt-2">Volume-confirmed breakouts from consolidation.</p>
+            </div>
+            <div class="bg-white text-center p-6 rounded-lg shadow-md border hover:shadow-xl hover:-translate-y-1 transition-all">
+                <h4 class="font-bold text-lg text-primary">Swing Trading</h4>
+                <p class="text-sm text-gray-600 mt-2">Using daily/4h trends with RSI/MACD filters.</p>
+            </div>
+            <div class="bg-white text-center p-6 rounded-lg shadow-md border hover:shadow-xl hover:-translate-y-1 transition-all">
+                <h4 class="font-bold text-lg text-primary">Value Investing</h4>
+                <p class="text-sm text-gray-600 mt-2">Focus on fundamentals and margin of safety.</p>
+            </div>
+            <div class="bg-white text-center p-6 rounded-lg shadow-md border hover:shadow-xl hover:-translate-y-1 transition-all">
+                <h4 class="font-bold text-lg text-primary">Systematic (SIP)</h4>
+                <p class="text-sm text-gray-600 mt-2">Asset allocation by goals; rebalanced annually.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools & Insights -->
+    <section id="tools" class="mb-16">
+        <h3 class="text-3xl font-bold text-primary text-center mb-2">SIP Calculator</h3>
+        <p class="text-center text-gray-600 mb-8">Estimate the potential growth of your SIP investments.</p>
+        
+        <div class="bg-white rounded-lg shadow-lg p-6 md:p-8 border border-gray-200">
+            <div class="grid md:grid-cols-5 gap-8 lg:gap-12 items-center">
+                <!-- Left Column: Input Sliders -->
+                <div class="md:col-span-2 space-y-6">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label for="monthlyInvestment" class="font-semibold text-primary">Monthly Investment</label>
+                            <span class="font-bold text-primary bg-primary/10 px-3 py-1 rounded-md">₹ <span id="monthlyInvestmentValue">5000</span></span>
+                        </div>
+                        <input type="range" id="monthlyInvestment" min="500" max="100000" step="500" value="5000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-accent">
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label for="returnRate" class="font-semibold text-primary">Expected Return Rate (% p.a.)</label>
+                            <span class="font-bold text-primary bg-primary/10 px-3 py-1 rounded-md"><span id="returnRateValue">12</span> %</span>
+                        </div>
+                        <input type="range" id="returnRate" min="1" max="30" step="1" value="12" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-accent">
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label for="timePeriod" class="font-semibold text-primary">Time Period (Years)</label>
+                            <span class="font-bold text-primary bg-primary/10 px-3 py-1 rounded-md"><span id="timePeriodValue">10</span> Years</span>
+                        </div>
+                        <input type="range" id="timePeriod" min="1" max="40" step="1" value="10" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-accent">
+                    </div>
+                     <div class="border-t pt-4 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                        <div>
+                            <p class="text-sm text-gray-500">Invested Amount</p>
+                            <p id="investedAmount" class="font-bold text-lg text-primary">₹ 6,00,000</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500">Wealth Gained</p>
+                            <p id="estimatedReturns" class="font-bold text-lg text-green-600">₹ 5,61,635</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500">Total Value</p>
+                            <p id="totalValue" class="font-bold text-lg text-accent">₹ 11,61,635</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Results & Graph -->
+                <div class="md:col-span-3">
+                    <canvas id="sipChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Author -->
+    <section id="about" class="bg-white rounded-lg shadow-lg p-8 mb-16">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="flex-shrink-0">
+                <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center text-white font-bold text-5xl">
+                    AT
+                </div>
+            </div>
+            <div>
+                <h3 class="text-3xl font-bold text-primary mb-2">About the Author</h3>
+                <p class="text-xl font-semibold text-gray-700">Abhay Thakur | Founder & Research Analyst</p>
+                <p class="text-gray-600 mb-4">
+                    I started InvestSmart with a single mission: to make institutional-grade research and knowledge accessible to everyday investors in simple terms. I believe that with the right information and a disciplined approach, anyone can achieve their financial goals.
+                </p>
+                <p class="text-gray-600 mb-4">
+                    My analysis is based on a 'business-owner' mindset—we focus on data, fundamental research, and risk management, not on 'tips' or 'shortcuts'. My goal here is not to tell you <i>what</i> to buy, but to teach you <i>how to think</i>, so you can become a confident and independent investor.
+                </p>
+                <div class="border-t pt-4">
+                    <h5 class="font-bold mb-2">Editorial Standards:</h5>
+                    <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                        <li>Every article uses primary sources (regulatory reports, company filings).</li>
+                        <li>Key assumptions are shown numerically with clear examples.</li>
+                        <li>Risks are explicitly listed and quantified when possible.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investor Personality Quiz -->
+    <section id="journey" class="bg-white rounded-lg shadow-lg p-8 md:p-12 text-center mb-16">
+        <div id="quiz-container">
+            <h3 class="text-3xl font-bold text-primary mb-2">What Type of Investor Are You?</h3>
+            <p class="max-w-2xl mx-auto text-gray-600 mb-8">Discover your risk profile to find the most relevant content for you.</p>
+            <div id="quiz-options" class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <!-- Conservative Option -->
+                <button data-type="conservative" class="quiz-option group block bg-primary/5 p-6 rounded-lg hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-accent">
+                    <div class="text-4xl mb-3">🛡️</div>
+                    <h4 class="font-bold text-xl text-primary mb-2">Conservative</h4>
+                    <p class="text-sm text-gray-600 group-hover:text-primary">You prioritize capital safety and steady, predictable returns.</p>
+                </button>
+                <!-- Moderate Option -->
+                <button data-type="moderate" class="quiz-option group block bg-primary/5 p-6 rounded-lg hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-accent">
+                    <div class="text-4xl mb-3">⚖️</div>
+                    <h4 class="font-bold text-xl text-primary mb-2">Moderate</h4>
+                    <p class="text-sm text-gray-600 group-hover:text-primary">You seek a balance between growth and capital preservation.</p>
+                </button>
+                <!-- Aggressive Option -->
+                <button data-type="aggressive" class="quiz-option group block bg-primary/5 p-6 rounded-lg hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-accent">
+                    <div class="text-4xl mb-3">🚀</div>
+                    <h4 class="font-bold text-xl text-primary mb-2">Aggressive</h4>
+                    <p class="text-sm text-gray-600 group-hover:text-primary">You are comfortable with higher risk for higher potential returns.</p>
+                </button>
+            </div>
+        </div>
+        <!-- Result Area -->
+        <div id="quiz-result" class="hidden max-w-2xl mx-auto">
+            <h3 class="text-2xl font-bold text-primary mb-2">You are a <span id="result-title" class="text-accent"></span>!</h3>
+            <p id="result-description" class="text-gray-700 mb-6"></p>
+            <div class="bg-primary/5 p-4 rounded-lg">
+                <p class="font-semibold mb-2">Recommended Next Steps:</p>
+                <div id="result-links" class="flex flex-col sm:flex-row justify-center gap-4">
+                    <!-- Links will be inserted here by JS -->
+                </div>
+            </div>
+            <button id="reset-quiz" class="mt-8 text-sm font-semibold text-gray-500 hover:text-primary">‹ Retake Quiz</button>
+        </div>
+    </section>
+      </main>
+  </div>
+
+  <div id="article-view" class="hidden">
+      <!-- Article Main Content -->
+      <main class="container mx-auto px-4 mt-8">
+        <article class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 md:p-12">
+          <!-- Article Header -->
+          <header class="mb-8 border-b pb-6">
+            <p class="text-sm text-gray-500 mb-2">By <strong>Abhay Thakur</strong> • Oct 04, 2025</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-primary leading-tight">
+              Stock Market Basics: Valuation & Margin of Safety
+            </h1>
+          </header>
+          
+          <!-- Article Image -->
+          <img src="https://placehold.co/800x400/0a3d62/f39c12?text=Valuation" alt="A chart showing stock valuation metrics" class="w-full rounded-lg mb-8 shadow-md">
+
+          <!-- Article Body -->
+          <div class="article-content text-lg text-gray-700">
+            <p><strong>Welcome to the foundational guide on stock valuation.</strong> Before investing in any company, it's crucial to understand what it's worth. This is where valuation comes in. It's the process of determining the current (or projected) worth of an asset or a company. This article will break down the essential concepts in simple terms.</p>
+            
+            <h2>Understanding Valuation Multiples</h2>
+            <p>Valuation multiples are financial metrics used to gauge a company's value. They are shortcuts, but powerful ones. The most common multiples include:</p>
+            
+            <ul>
+                <li><strong>P/E Ratio (Price-to-Earnings):</strong> This tells you how much investors are willing to pay for each dollar of a company's earnings. A high P/E might suggest high growth expectations, while a low P/E might indicate an undervalued company or potential issues.</li>
+                <li><strong>EV/EBITDA (Enterprise Value to EBITDA):</strong> This is often preferred for comparing companies with different debt levels and tax rates, as it provides a more normalized comparison of profitability.</li>
+                <li><strong>Price/Sales (P/S) Ratio:</strong> This is useful for valuing companies that are not yet profitable, like many high-growth tech startups. It compares the company's stock price to its revenues.</li>
+            </ul>
+
+            <h2>The Golden Rule: Margin of Safety</h2>
+            <p>Introduced by Benjamin Graham, the "Margin of Safety" is perhaps the single most important principle of investing. It means purchasing a security at a significant discount to its intrinsic value. This discount provides a buffer against errors in judgment or unforeseen market downturns.</p>
+
+            <blockquote>Imagine you estimate a company's intrinsic value to be ₹150 per share. A margin of safety would be buying that stock only when it trades at, for example, ₹100 or less. That ₹50 difference is your margin of safety.</blockquote>
+
+            <p>Remember, no single metric can tell the whole story. A smart investor uses a combination of these tools to build a comprehensive view of a company's value and always invests with a margin of safety. This disciplined approach is the cornerstone of successful long-term investing.</p>
+          </div>
+        </article>
+      </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white pt-12 pb-8">
+     <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+            <!-- Column 1: Brand -->
+            <div class="md:col-span-1">
+                <h4 class="text-xl font-bold mb-2">InvestSmart</h4>
+                <p class="text-sm text-gray-300">Empowering investors with clear, data-driven insights for confident financial decisions.</p>
+            </div>
+            <!-- Column 2: Explore -->
+            <div>
+                <h5 class="font-bold mb-3 uppercase tracking-wider text-gray-300">Explore</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#articles" class="hover:text-accent transition-colors">Articles</a></li>
+                    <li><a href="#strategies" class="hover:text-accent transition-colors">Strategies</a></li>
+                    <li><a href="#tools" class="hover:text-accent transition-colors">Tools</a></li>
+                </ul>
+            </div>
+            <!-- Column 3: Legal -->
+            <div>
+                <h5 class="font-bold mb-3 uppercase tracking-wider text-gray-300">Legal</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-accent transition-colors">Disclaimer</a></li>
+                    <li><a href="#" class="hover:text-accent transition-colors">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-accent transition-colors">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <!-- Column 4: Connect -->
+            <div>
+                <h5 class="font-bold mb-3 uppercase tracking-wider text-gray-300">Connect</h5>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-accent transition-colors">LinkedIn</a>
+                    <a href="#" class="hover:text-accent transition-colors">Twitter</a>
+                    <a href="#" class="hover:text-accent transition-colors">YouTube</a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
+            <p>&copy; 2025 InvestSmart • Content for educational purposes only. Not personalized financial advice.</p>
+        </div>
+    </div>
+  </footer>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Page View Toggling Script ---
+        const homeView = document.getElementById('home-view');
+        const articleView = document.getElementById('article-view');
+        const readArticleBtn = document.getElementById('read-article-btn');
+        const backToHomeBtns = document.querySelectorAll('.back-to-home-btn');
+
+        if(readArticleBtn) {
+            readArticleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                homeView.classList.add('hidden');
+                articleView.classList.remove('hidden');
+                window.scrollTo(0, 0); // Scroll to top
+            });
+        }
+
+        backToHomeBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                articleView.classList.add('hidden');
+                homeView.classList.remove('hidden');
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if(mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // --- SIP Calculator Script ---
+        const monthlyInvestmentSlider = document.getElementById('monthlyInvestment');
+        if (monthlyInvestmentSlider) { // Check if calculator exists on page
+            const returnRateSlider = document.getElementById('returnRate');
+            const timePeriodSlider = document.getElementById('timePeriod');
+
+            const monthlyInvestmentValue = document.getElementById('monthlyInvestmentValue');
+            const returnRateValue = document.getElementById('returnRateValue');
+            const timePeriodValue = document.getElementById('timePeriodValue');
+
+            const investedAmountEl = document.getElementById('investedAmount');
+            const estimatedReturnsEl = document.getElementById('estimatedReturns');
+            const totalValueEl = document.getElementById('totalValue');
+
+            const ctx = document.getElementById('sipChart').getContext('2d');
+            let sipChart;
+            
+            const formatToINR = (num) => new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR',
+                maximumFractionDigits: 0
+            }).format(num);
+
+            function createOrUpdateChart(chartData) {
+                if (sipChart) {
+                    sipChart.data.labels = chartData.labels;
+                    sipChart.data.datasets[0].data = chartData.investedData;
+                    sipChart.data.datasets[1].data = chartData.totalValueData;
+                    sipChart.update();
+                    return;
+                }
+                const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+                gradient.addColorStop(0, 'rgba(243, 156, 18, 0.4)');
+                gradient.addColorStop(1, 'rgba(243, 156, 18, 0)');
+                sipChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: chartData.labels,
+                        datasets: [
+                            {
+                                label: 'Total Investment',
+                                data: chartData.investedData,
+                                borderColor: '#0a3d62',
+                                borderWidth: 2,
+                                pointRadius: 0,
+                                tension: 0.1
+                            },
+                            {
+                                label: 'Total Value',
+                                data: chartData.totalValueData,
+                                borderColor: '#f39c12',
+                                borderWidth: 3,
+                                pointRadius: 0,
+                                tension: 0.1,
+                                fill: true,
+                                backgroundColor: gradient,
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                align: 'end',
+                                labels: { usePointStyle: true, boxWidth: 8 }
+                            },
+                            tooltip: {
+                                mode: 'index',
+                                intersect: false,
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) { label += ': '; }
+                                        if (context.parsed.y !== null) {
+                                            label += formatToINR(context.parsed.y);
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: { grid: { display: false } },
+                            y: {
+                                ticks: {
+                                    callback: function(value, index, values) {
+                                        return '₹' + (value / 100000).toLocaleString('en-IN') + 'L';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            function calculateAndDisplay() {
+                const P = Number(monthlyInvestmentSlider.value);
+                const r = Number(returnRateSlider.value) / 100;
+                const n = Number(timePeriodSlider.value);
+                monthlyInvestmentValue.textContent = P.toLocaleString('en-IN');
+                returnRateValue.textContent = returnRateSlider.value;
+                timePeriodValue.textContent = n;
+                const i = r / 12;
+                let labels = [], totalValueData = [], investedData = [];
+                for (let year = 1; year <= n; year++) {
+                    const t = year * 12;
+                    const futureValue = P * ((((1 + i) ** t) - 1) / i) * (1 + i);
+                    const principal = P * t;
+                    labels.push(`Year ${year}`);
+                    totalValueData.push(futureValue);
+                    investedData.push(principal);
+                }
+                const finalTotalValue = totalValueData[totalValueData.length - 1] || 0;
+                const finalInvestedAmount = investedData[investedData.length - 1] || 0;
+                const finalEstimatedReturns = finalTotalValue - finalInvestedAmount;
+                investedAmountEl.textContent = formatToINR(finalInvestedAmount);
+                estimatedReturnsEl.textContent = formatToINR(finalEstimatedReturns);
+                totalValueEl.textContent = formatToINR(finalTotalValue);
+                createOrUpdateChart({ labels, investedData, totalValueData });
+            }
+
+            [monthlyInvestmentSlider, returnRateSlider, timePeriodSlider].forEach(slider => {
+                slider.addEventListener('input', calculateAndDisplay);
+            });
+            calculateAndDisplay();
+        }
+
+        // --- Investor Personality Quiz Script ---
+        const quizContainer = document.getElementById('quiz-container');
+        if(quizContainer) {
+            const quizOptions = document.querySelectorAll('.quiz-option');
+            const quizResultContainer = document.getElementById('quiz-result');
+            const resultTitle = document.getElementById('result-title');
+            const resultDescription = document.getElementById('result-description');
+            const resultLinks = document.getElementById('result-links');
+            const resetQuizButton = document.getElementById('reset-quiz');
+
+            const resultsData = {
+                conservative: {
+                    title: 'Value Guardian',
+                    description: 'You prioritize capital preservation and steady, long-term growth. Your focus is on well-established assets with low volatility.',
+                    links: [ { text: 'Read about Value Investing', href: '#articles' }, { text: 'Learn about SIPs', href: '#strategies' } ]
+                },
+                moderate: {
+                    title: 'Balanced Builder',
+                    description: 'You seek a healthy mix of safety and growth, aiming for better returns than low-risk assets without taking on excessive volatility.',
+                    links: [ { text: 'Explore our Core Strategies', href: '#strategies' }, { text: 'Use the SIP Calculator', href: '#tools' } ]
+                },
+                aggressive: {
+                    title: 'Growth Seeker',
+                    description: 'You are comfortable with higher risk for the potential of higher returns. You focus on growth-oriented assets and trading strategies.',
+                    links: [ { text: 'Learn Breakout Trading', href: '#strategies' }, { text: 'Read about Risk Controls', href: '#articles' } ]
+                }
+            };
+            quizOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    const type = option.dataset.type;
+                    const result = resultsData[type];
+                    resultTitle.textContent = result.title;
+                    resultDescription.textContent = result.description;
+                    resultLinks.innerHTML = '';
+                    result.links.forEach(link => {
+                        const a = document.createElement('a');
+                        a.href = link.href;
+                        a.className = 'bg-accent text-white font-semibold py-2 px-4 rounded-lg hover:bg-accent-dark transition-colors';
+                        a.textContent = link.text;
+                        resultLinks.appendChild(a);
+                    });
+                    quizContainer.classList.add('hidden');
+                    quizResultContainer.classList.remove('hidden');
+                });
+            });
+            resetQuizButton.addEventListener('click', () => {
+                quizResultContainer.classList.add('hidden');
+                quizContainer.classList.remove('hidden');
+            });
+        }
+    });
+  </script>
+
+</body>
+</html>
+
